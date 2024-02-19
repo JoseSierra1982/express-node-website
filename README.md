@@ -1,6 +1,11 @@
-# express-node-website
-Quick demonstration about using Node.JS with Express to launch a simple static website. For more deep details about Express.JS, please refer to my repo ["Express Basics"](https://github.com/anmarjarjees/express-basics).
+# Express Node Website:
+Quick demonstration about two topics:
 
+> **Topic#1:** Using Node.JS with Express to launch a simple static website. For more deep details about Express.JS, please refer to my repo ["Express Basics"](https://github.com/anmarjarjees/express-basics).
+
+> **Topic#2:** Using API request to let the "Front-End" to get data from the "Back-End"
+
+# Express Templating Engines:
 We can use one of the view engines view/templating engines that are supported by Express.JS. The templating engines include:
 
 - EJS
@@ -42,7 +47,19 @@ so we can simply run:
 
 4. Using the template from Express.JS
 
+5. We can still run the server after modifying the json package by:
 
+> node .
+
+OR if you installed "nodemon" and changed the JSON file, we can use:
+
+> npm start
+
+OR:
+
+> npm run dev
+
+In such case any change we save, the server will restart :-)
 
 # NOTE:
 Testing your website you might see this page with these contents:
@@ -73,17 +90,6 @@ But my personal solution as I had the same problem in running one of my applicat
 // URL: http://localhost:3000/site
 app.use('/site', express.static(path.join(__dirname, 'public')));
 ```
-- Then run your server by:
-
-> node .
-
-OR if you installed "nodemon" and changed the JSON file:
-
-> npm start
-
-OR:
-
-> npm run dev
 
 - Just click the URL in the comment inside your .js file and that's it :-)
 
@@ -154,3 +160,6 @@ we can run this command:
 - https://github.com/anmarjarjees/express-basics
 - https://github.com/anmarjarjees/express-application
 - https://github.com/anmarjarjees/express-website-hbs 
+- https://github.com/anmarjarjees/node.js-start
+- https://github.com/anmarjarjees/ECMAScript6
+- https://github.com/anmarjarjees/js-frameworks

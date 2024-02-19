@@ -43,7 +43,7 @@ A regular expression pattern to match paths.
 An array of combinations of any of the above.
 */
 // test:
-console.log("\npath: ", path);
+// console.log("\npath: ", path);
 
 /*
 We will also use __dirname to refer to the root directory
@@ -60,7 +60,17 @@ Output Example:
 __dirname:  C:\Repos\Express\express-node-website 
 */
 
-// Using Express Static folderL
+/*
+Finally to get a JSON data,
+we need to import the colors.json
+*/
+// importing the json file to our index1.js:
+// I have added { type: 'json' }
+// Link: https://nodejs.org/api/esm.html#import-assertions
+// import data from './data/colors.json' assert { type: 'json' };
+const data = require('./data/colors.json');
+
+// Using Express Static folder:
 // https://expressjs.com/en/starter/static-files.html
 /*
 call .use() to serve static contents: html, images, css, etc...
@@ -106,20 +116,63 @@ From Express.JS:
  the path that you provide to the express.static function is relative to the directory from where you launch your node process. If you run the express app from another directory, it’s safer to use the absolute path of the directory that you want to serve:
 */
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World!')
-// })
-
 /*
 How do to handle 404 responses?
 Link: https://expressjs.com/en/starter/faq.html#how-do-i-handle-404-responses
 */
-app.use((req, res, next) => {
+app.use((err, req, res, next) => {
     res.status(404).send("<h1>Error 404, Cannot find your request!<h1>");
     // we can output the err stack
     console.error(err.stack)
     // we can include other http status errors:
     res.status(500).send('Something broke!')
+})
+
+// The default basic .get() method:
+// URL: http://localhost:3000/
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+/*
+Finally: Topic#2 
+Quick demo about send/fetch data from the backend (server-side)
+using get method() the end point: "/api/colors"
+*/
+// URL: http://localhost:3000/api/colors
+app.get('/api/colors', (req, res) => {
+    /*
+    Notice that we can also create the JSON content using a local variable,
+    Then send it:
+    */
+
+    /*
+    const colors = [
+        {
+            "color": "red",
+            "value": "#f00"
+        },
+        {
+            "color": "green",
+            "value": "#0f0"
+        },
+        {
+            "color": "blue",
+            "value": "#00f"
+        }
+    ];
+
+    res.json(colors);
+    console.log("Colors: \n", colors);
+    */
+
+    // using the response with the method ".json()"" to get the JSON data 
+    // and send a JSON response to the route handler:
+    // testing:
+    // console.log("request received and data: \n", data);
+
+    res.json(data);
 })
 
 // to run the app:

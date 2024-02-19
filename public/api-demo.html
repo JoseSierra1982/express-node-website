@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Contact S.U.</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="assets/images/su_banner.gif" alt="Banner" title="Umbrella Banner" />
+            <nav id="main-nav">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About Us</a>
+                    </li>
+                    <li>
+                        <a href="services.html">Our Services</a>
+                    </li>
+                    <li>
+                        <a href="api-demo.html">API Demo</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="content">
+            <form action="" method="post">
+                <fieldset>
+                    <legend>API Simple Demonstration</legend>
+                    <label for="text">Your Text:</label>
+                    <input id="text" name="text" type="text" maxlength="25" required />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Action Buttons</legend>
+                    <div class="submit">
+                        <input type="button" id="getFetch" value="Get with Fetch()">
+                        <input type="button" id="getAsync" value="Get with Async/Await">
+                    </div>
+                </fieldset>
+            </form>
+
+            <div id="data">
+
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Copyright &copy; 2022 ILAC College - HTML Project designed by: First Last - All rights
+                reserved</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
