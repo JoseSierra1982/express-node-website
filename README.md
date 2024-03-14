@@ -61,39 +61,6 @@ OR:
 
 In such case any change we save, the server will restart :-)
 
-# NOTE:
-Testing your website you might see this page with these contents:
- - **localhost** refused to connect.
-
-Try:
- - Checking the connection
- - Checking the proxy and the firewall
-ERR_CONNECTION_REFUSED
-
-**Chrome Browser for example will suggest the following:**
-Check your Internet connection
-Check any cables and reboot any routers, modems, or other network devices you may be using.
-
-**Allow Chrome to access the network in your firewall or antivirus settings.**
-If it is already listed as a program allowed to access the network, try removing it from the list and adding it again.
-
-**If you use a proxy server…**
-Check your proxy settings or contact your network administrator to make sure the proxy server is working. If you don't believe you should be using a proxy server: Go to the Chrome menu > Settings > Show advanced settings… > Change proxy settings… > LAN Settings and deselect "Use a proxy server for your LAN".
-
-**So you can change your Anti-Virus settings by following the instructions from Google, or just install and use "nodemon" as we did before.**
-
-You can watch this video ["How to Fix Localhost Refused to Connect By Hostinger Academy"](https://youtu.be/fzTq0e-tHvo?si=i1K9n3jZ59jJR3HP)
-
-But my personal solution as I had the same problem in running one of my application is simply by:
-- Add the URL as a comment to your JavaScript application that you want to run. In my case (for this repo) as shown in this code snippet from "app.js":
-```
-// URL: http://localhost:3000/site
-app.use('/site', express.static(path.join(__dirname, 'public')));
-```
-
-- Just click the URL in the comment inside your .js file and that's it :-)
-
-
 # Installing nodemon and JSON settings"
 In this section, we will review the steps for installing nodemon and the changes we need to make in the "package.json" file. Instead of rerun the server after any change we save in our application, we can install ["nodemon"](https://www.npmjs.com/package/nodemon). Any change we save our sever will restart automatically.
 

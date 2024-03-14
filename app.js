@@ -177,5 +177,5 @@ app.get('/api/colors', (req, res) => {
 
 // to run the app:
 app.listen(port, () => {
-    console.log(`Example app listening on port http://localhost/${port}`)
+    console.log(`Example app listening on port http://localhost:${port}`)
 });
