@@ -1,23 +1,26 @@
-// alert("test API Demo");
 // Front-End JavaScript Code File:
+// alert("test API Demo");
 
 /*
 Using DOM to get a reference to the two buttons based on their IDs
 To access "EventListener()" method and attach "click" event to them:
 */
+// declaring our two js variables to refer to each button:
 const getFetchBtn = document.getElementById("getFetch");
 const getAsyncBtn = document.getElementById("getAsync");
 
 /*
-To recap:
-AddEventListener required arguments:
-- The event type
-- Callback function (oe we can write an inline anonymous arrow function as well)
+Working with Event Listener (To review):
+> element.addEventListener(event-type, function)
+
+AddEventListener method has two required arguments:
+- The Event Type like "click" event
+- CB (Callback function: passing a function name as an argument) OR we can write an inline anonymous arrow function as well
 */
 getFetchBtn.addEventListener('click', getDataFetch);
 getAsyncBtn.addEventListener('click', getDataAsync);
 
-
+// The URL for accessing the JSON data from Express:
 const apiURL = 'http://localhost:3000/api/colors';
 
 /*
@@ -26,7 +29,8 @@ const apiURL = 'http://localhost:3000/api/colors';
  */
 function getDataFetch() {
     // test:
-    alert("fetch with .then()");
+    // alert("fetch with .then()");
+
     /*
     To let the front-end bring data from the back-end, 
     we can use the same function that studied before: "fetch()" :-)
@@ -36,18 +40,15 @@ function getDataFetch() {
     .then((response) => response.json())
     .then((data) => console.log(data));
 
-    Link: https://github.com/anmarjarjees/js-frameworks/blob/main/week03/script2.js
+     Link: https://github.com/anmarjarjees/js-frameworks/blob/main/week02
     */
     fetch(apiURL)
         .then((response) => response.json())
         .then((data) => console.log(data));
-
-    for (let index = 0; index < array.length; index++) {
-        const element = array[index];
-
-    }
 }; // end getDataFetch()
 
+// Different Types of For Loops In JavaScript :-)
+// **********************************************
 // Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for...in_statement
 // Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
 
@@ -83,12 +84,12 @@ Link: https://en.wikipedia.org/wiki/Syntactic_sugar
 This function will:
 - return a promise
 - work asynchronously 
-Link: https://github.com/anmarjarjees/js-frameworks/blob/main/week03/script3.js
+Link: https://github.com/anmarjarjees/js-frameworks/blob/main/week03
 */
+// For your first micro project:
 async function getDataAsync() {
     // test:
-    alert("fetch with await");
-
+    // alert("fetch with await");
 
     /*
     NOTE:
@@ -100,7 +101,7 @@ async function getDataAsync() {
     until there is a response from the API request to be given.
     Or until the promise from fetch has been fulfilled (resolved)
 
-    Link: https://github.com/anmarjarjees/js-frameworks/blob/main/week03/script3.js
+    Link: Link: https://github.com/anmarjarjees/js-frameworks/blob/main/week03
     */
 
     /* 
@@ -145,13 +146,31 @@ async function getDataAsync() {
         Since it's an array of object, we can use "for in" to print the key/value pairs
         */
 
+        /* 
+        NOW! Rendering the data nicely for the end user :-)
+        Example, we will use ul and li
+    
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            .....
+        </ul>
+        */
+
         // VS Code will give us this template when using "for in", modify the variables:
         // Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
         let ulContent = "<ul>";
         for (const element of data) {
             // test:
             // console.log(`${element.color} : ${element.value}`);
-            ulContent += `<li>${element.color} : ${element.value}</li>`;
+
+            // Using either of the two ways below (but not both!):
+            // First Way: Using the normal contacting syntax:
+            ulContent += "<li>" + element.color + ": " + element.value + "</li>";
+            // OR:
+            // Second Way: Using the Template Literal:
+            // ulContent += `<li>${element.color} : ${element.value}</li>`;
         }
         ulContent += "</ul>";
 

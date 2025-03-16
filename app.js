@@ -24,10 +24,6 @@ Important Note To Recap:
 // Or Using CommonJS (Node.js) Syntax (default):
 const express = require('express');
 
-// Creating an instance of express named "app" by convention:
-const app = express();
-const port = 3000;
-
 /*
 Importing the "path" module:
 In ES6, this would be:
@@ -35,7 +31,6 @@ import path from "path";
 
 Since we're using CommonJS (Node.js), we use "require":
 */
-
 const path = require('path');
 /*
 The "path" for which the middleware function is invoked.
@@ -48,6 +43,9 @@ The "path" can be:
 This allows us to serve specific routes or static files based on the pattern.
 */
 
+// Creating an instance of express named "app" by convention:
+const app = express();
+const port = 3000;
 
 // Test the path module:
 // console.log("\npath: ", path);
@@ -56,11 +54,10 @@ This allows us to serve specific routes or static files based on the pattern.
 We will also use __dirname to refer to the root directory of the application.
 
 NOTE: 
-"__dirname" comes with using `require()` in CommonJS.
+"__dirname" comes with using "require()" in CommonJS.
 If you're planning to use ES6 modules, 
 you need to import it individually as it's not available by default in ES6.
 */
-
 console.log("__dirname: ", __dirname);
 /* 
 Output Example:
@@ -70,7 +67,7 @@ __dirname:  C:\Repos\Express\express-node-website
 /*
 Finally to get a JSON data,
 we need to import the json file which is "colors.json"
-Since we're using CommonJS, we use `require` to import the JSON data.
+Since we're using CommonJS, we use "require" to import the JSON data.
 If using ES6, you could import it like:
 import data from './data/colors.json' assert { type: 'json' };
 
@@ -81,8 +78,20 @@ Link: https://nodejs.org/api/esm.html#import-assertions
 const data = require('./data/colors.json');
 
 /*
+The basic ".get()"" method handles HTTP GET requests (default example from Express).
+It is used just to serve content when we visit the root (base) URL.
+URL: http://localhost:3000/
+*/
+/*
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+*/
+
+
+/*
 Using Express Static folder:
-Express provides a middleware function `express.static()` to serve static files like HTML, CSS, and images.
+Express provides a middleware function "express.static()" to serve static files like HTML, CSS, and images.
 
 https://expressjs.com/en/starter/static-files.html
 
@@ -103,7 +112,7 @@ specifying the static folder "public"
 // Second Example (Better practice using absolute paths with path.join):
 // *********************************************************************
 /*
-Instead of hardcoding the path like `express.static(__dirname + '/public')`, 
+Instead of hardcoding the path like "express.static(__dirname + '/public')", 
 we use "path.join()" to ensure cross-platform compatibility.
 Using path.join ensures that we correctly resolve paths regardless of the operating system.
 
@@ -117,7 +126,7 @@ If we don't add the "path", we can run the app by running the command only withi
 // app.use(express.static(__dirname + '/public'));
 
 // but it's much better and more professional to use path.join():
-// We specify the `/site` path in the URL to serve the static files. 
+// We specify the "/site" path in the URL to serve the static files. 
 // URL: http://localhost:3000/site
 app.use('/site', express.static(path.join(__dirname, 'public')));
 /*
@@ -127,7 +136,7 @@ Using "path.join()"" ensures that the path is correctly resolved even if the app
 */
 
 /*
-Handling 404 Responses:
+Handling 404 Responses (Optional but good practice!):
 We can customize how errors like 404 (Page Not Found) are handled by adding an "error-handling" middleware function.
 This will respond when a non-existent route is accessed.
 Link: https://expressjs.com/en/starter/faq.html#how-do-i-handle-404-responses
@@ -143,20 +152,12 @@ app.use((err, req, res, next) => {
 })
 
 /*
-The basic ".get()"" method handles HTTP GET requests (default example from Express).
-It is used just to serve content when we visit the root (base) URL.
-URL: http://localhost:3000/
-*/
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
-/*
-Topic #2: Quick demo on sending/fetching data from the backend (server-side)
+Topic #2 (reviewing from your previous assignment): 
+Quick demo on sending/fetching data from the backend (server-side)
 using a GET method at the "/api/colors" endpoint.
 
 This route will send JSON data as a response when it's accessed.
-URL: http://localhost:3000/api/colors
+> Root URL (http://localhost:3000) + Ending Point (/api/colors) => http://localhost:3000/api/colors
 */
 // URL: http://localhost:3000/api/colors
 app.get('/api/colors', (req, res) => {
@@ -196,5 +197,5 @@ app.get('/api/colors', (req, res) => {
 
 // to run the app:
 app.listen(port, () => {
-    console.log(`Example app listening on port http://localhost:${port}`)
+    console.log(`APP ROOT URL: http://localhost:${port}`)
 });
