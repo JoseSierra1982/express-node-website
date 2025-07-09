@@ -21,5 +21,13 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseSierra1982/express-node-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JoseSierra1982/express-node-website/issues"
+  },
+  "homepage": "https://github.com/JoseSierra1982/express-node-website#readme"
 }
